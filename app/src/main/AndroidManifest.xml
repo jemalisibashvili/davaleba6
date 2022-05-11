@@ -17,6 +17,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <nav-graph android:value="@navigation/nav_graph" />
+            <intent-filter android:label="filter_view_http_gizmos">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPrefix="/gizmos"/>
+                <data
+                    android:host="gizmos"
+                    android:scheme="example" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -23,8 +23,12 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, AppBarConfiguration(
             setOf(R.id.homeFragment,
             R.id.dashboardFragment,
-            R.id.notificationFragment)
+            R.id.notificationFragment,
+            R.id.settingsFragment)
         ))
         bottomnavigationView.setupWithNavController(navController)
     }
+
+
+
 }

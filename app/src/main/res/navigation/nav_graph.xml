@@ -7,26 +7,48 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        tools:layout="@layout/fragment_home"
         android:name="com.example.davaleba6.fragments.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notificationFragment"
+            app:destination="@id/navigation" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment4"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        tools:layout="@layout/fragment_dashboard"
         android:name="com.example.davaleba6.fragments.DashboardFragment"
-        android:label="DashboardFragment">
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard">
         <argument
             android:name="amount"
             android:defaultValue="-1"
-            app:argType="integer"/>
-</fragment>
+            app:argType="integer" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.example.com/dashboard/{amount}" />
+    </fragment>
     <fragment
-        android:id="@+id/notificationFragment"
-        tools:layout="@layout/fragment_notification"
-        android:name="com.example.davaleba6.fragments.NotificationFragment"
-        android:label="NotificationFragment" />
+        android:id="@+id/settingsFragment"
+        android:name="com.example.davaleba6.fragments.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+        <deepLink
+            android:id="@+id/deepLink3"
+            app:uri="example.com/settings/{settings}" />
+    </fragment>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/notificationFragment">
+        <fragment
+            android:id="@+id/notificationFragment"
+            android:name="com.example.davaleba6.fragments.NotificationFragment"
+            android:label="NotificationFragment"
+            tools:layout="@layout/fragment_notification" />
+    </navigation>
+
 </navigation>
